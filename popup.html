@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="extension-main-form-container">
+            <div class="ext-main-title">
+                Create New Notification
+            </div>
+            <div class="ext-form">
+                <div class="form-item-row">
+                    <div class="form-row-label"><label>Expiry(In No of Days)</label></div>
+                    <div class="form-row-input"><input type="number" min="1" id="form-expiry" /></div>
+                </div>
+                <div class="form-item-row">
+                    <div class="form-row-label"><label>Content</label></div>
+                    <div class="form-row-input"><textarea id="form-content" rows="5" ></textarea></div>
+                </div>
+                <div class="form-item-row">
+                    <div class="form-row-label"><label>Link(If Any)</label></div>
+                    <div class="form-row-input"><input type="url" id="form-link" /></div>
+                </div>
+                <div class="form-item-message">
+                    <div class="success-message message-hide" id="form-success"></div>
+                    <div class="error-message message-hide" id="form-error"></div>
+                </div>
+                <div class="form-item-row">
+                    <div class="form-row-action">
+                        <button class="ext-form-btn btn-primary" id="ext-btn-submit">Submit</button>
+                        <button class="ext-form-btn" id="ext-btn-cancel">Cancel</button>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="extension-main-list-container">
+            <div class="ext-main-title">
+                Notifications
+            </div>
+        </div>
+        <link rel="stylesheet" href="css/popup.css">
+        <script src="js/popup.js"></script>
+    </body>
+</html>

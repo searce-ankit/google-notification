@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Google Drive Document Reader",
+  "version":"0.0.1",
+  "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs5OTG3m7HzGRhOGo1qkX8FLDdhCNLBe3aYOwhkBlhjjEjwPeiCjftou6dZ0OO3A0l4SfmVYbd2nYvIV0SLVfbnTK0JeaDSOpYSEkNgaK3BheKrpMnVLTiObwLL7bBHsuUjyA3An8GFd8GC1++il4E25sBBAJSKWiPQAiJ0yVKgSbRjSkdi0mTXtDhTUNaFuL7NocKu03wdSr766dosVVteczJa/b7JgfJ0d027eXDlQFH3uCcGqSezGwLZl11A5/EEMYpnQycYu85Utwt1bWJzrTcErmpMyimRVL1I2fyXERajV3z0Q6VLWUxqj3WZ1ukdu+o1qyxHCvj05fba41KQIDAQAB",
+  "permissions": [
+    "identity",
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy":{
+    "extension_pages":"script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+        {
+          "matches": ["https://mail.google.com/*"],
+          "css": ["content-styles.css"],
+          "js": ["content-script.js"],
+          "run_at": "document_idle",
+          "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+            "https://apis.google.com/js/api.js",
+            "popup.html",
+          "js/*.js",
+          "css/*.css"
+        ],
+        "matches": ["https://mail.google.com/*"]
+      }
+    ],
+    "action":{
+        "default_title": "click here"
+    }
+    
+}

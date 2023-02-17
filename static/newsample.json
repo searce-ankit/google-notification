@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Google Drive Document Reader",
+  "version":"0.0.1",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy":{
+    "extension_pages":"script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+        {
+          "matches": ["https://mail.google.com/*"],
+          "css": ["content-styles.css"],
+          "js": ["content-script.js"],
+          "run_at": "document_idle",
+          "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+            "https://apis.google.com/js/api.js",
+          "js/*.js"
+        ],
+        "matches": ["https://mail.google.com/*"]
+      }
+    ]
+}
